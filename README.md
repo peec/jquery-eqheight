@@ -13,15 +13,23 @@ This is useful if:
 - You have columns side by side and those have background and don't have the same content.
 
 
+## Install
+
+
+```
+bower install jquery-eqheight
+```
+
+You can also manually download the jquery.eqheight.js file to your project.
+
+
 
 ## USAGE
 
 
-
 ### Example HTML
 
-
-Example with bootstrap:
+Example with bootstrap 3:
 
 ```html
 <div class="container">
