@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Jquery-eqheight by peec</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Jquery-eqheight</h1>
+      <h2 class="project-tagline">jQuery eqheight does what it says. It sets blocks beside each other to the same height, based on the selector you pass</h2>
+      <a href="https://github.com/peec/jquery-eqheight" class="btn">View on GitHub</a>
+      <a href="https://github.com/peec/jquery-eqheight/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/peec/jquery-eqheight/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="jquery-eqheight" class="anchor" href="#jquery-eqheight" aria-hidden="true"><span class="octicon octicon-link"></span></a>jquery-eqheight</h1>
+
+<p><strong>Lightweight: 0.962 kb minified</strong></p>
+
+<h2>
+<a id="what-does-it-do" class="anchor" href="#what-does-it-do" aria-hidden="true"><span class="octicon octicon-link"></span></a>What does it do?</h2>
+
+<p>It sets blocks beside each other to the same height, based on the selector you pass. It
+also works responsively which is a must these days. Only applies equal height if columns are stacked horizontally within
+the bounding box.</p>
+
+<p>This is useful if:</p>
+
+<ul>
+<li>You have columns side by side and those have background and don't have the same content.</li>
+</ul>
+
+<h2>
+<a id="install" class="anchor" href="#install" aria-hidden="true"><span class="octicon octicon-link"></span></a>Install</h2>
+
+<pre><code>bower install jquery-eqheight
+</code></pre>
+
+<p>You can also manually download the jquery.eqheight.js file to your project.</p>
+
+<h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>USAGE</h2>
+
+<h3>
+<a id="example-html" class="anchor" href="#example-html" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example HTML</h3>
+
+<p>Example with bootstrap 3:</p>
+
+<div class="highlight highlight-html"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>container<span class="pl-pds">"</span></span>&gt;
+    &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>row<span class="pl-pds">"</span></span>&gt;
+        &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>col-xs-4<span class="pl-pds">"</span></span> <span class="pl-e">style</span>=<span class="pl-s"><span class="pl-pds">"</span>background: yellow;<span class="pl-pds">"</span></span>&gt;
+        Some text.
+        &lt;/<span class="pl-ent">div</span>&gt;
+        &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>col-xs-4<span class="pl-pds">"</span></span> <span class="pl-e">style</span>=<span class="pl-s"><span class="pl-pds">"</span>background: red;<span class="pl-pds">"</span></span>&gt;
+        Some long text ..
+        &lt;/<span class="pl-ent">div</span>&gt;
+        &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>col-xs-4<span class="pl-pds">"</span></span> <span class="pl-e">style</span>=<span class="pl-s"><span class="pl-pds">"</span>background: pink;<span class="pl-pds">"</span></span>&gt;
+        Some very long text ...
+        &lt;/<span class="pl-ent">div</span>&gt;
+    &lt;/<span class="pl-ent">div</span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
+
+<h3>
+<a id="via-javascript" class="anchor" href="#via-javascript" aria-hidden="true"><span class="octicon octicon-link"></span></a>via javascript:</h3>
+
+<div class="highlight highlight-javascript"><pre>$(<span class="pl-k">function</span> () {
+    $(<span class="pl-s"><span class="pl-pds">'</span>.col-xs-4<span class="pl-pds">'</span></span>).eqHeight({
+        bindResizeEvent<span class="pl-k">:</span> <span class="pl-c1">true</span>,
+        <span class="pl-en">heightAdjuster</span>: <span class="pl-k">function</span> (<span class="pl-smi">$self</span>) {
+            <span class="pl-k">return</span> $self;
+        }
+    });
+});</pre></div>
+
+<h3>
+<a id="via-data-attributes" class="anchor" href="#via-data-attributes" aria-hidden="true"><span class="octicon octicon-link"></span></a>via data attributes:</h3>
+
+<p>You can also initialize by data attribute data-eqheight:</p>
+
+<div class="highlight highlight-html"><pre>    &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>row<span class="pl-pds">"</span></span> <span class="pl-e">data-eqheight</span>=<span class="pl-s"><span class="pl-pds">"</span>.col-xs-4<span class="pl-pds">"</span></span>&gt;
+    .... .col-xs-4 inside here will have equal height ....
+    &lt;/<span class="pl-ent">div</span>&gt;</pre></div>
+
+<h2>
+<a id="--note-that-internally-we-use-thisfind-on-the-data-eqheight-attribute-so-only-children-of-the-container-will-be-found-this-is-useful-so-you-dont-apply-the-rules-globally" class="anchor" href="#--note-that-internally-we-use-thisfind-on-the-data-eqheight-attribute-so-only-children-of-the-container-will-be-found-this-is-useful-so-you-dont-apply-the-rules-globally" aria-hidden="true"><span class="octicon octicon-link"></span></a>- Note that internally we use <code>$(this).find('...')</code> on the <code>data-eqheight</code> attribute so only children of the container will be found. This is useful so you don't apply the rules globally.</h2>
+
+<h3>
+<a id="settings" class="anchor" href="#settings" aria-hidden="true"><span class="octicon octicon-link"></span></a>Settings</h3>
+
+<table>
+<thead>
+<tr>
+<th>Settings</th>
+<th align="center">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>bindResizeEvent</td>
+<td align="center">Binds to resize event if true. This should probably be done, if you have a responsive site. if not disable it (better performance).</td>
+</tr>
+<tr>
+<td>heightAdjuster</td>
+<td align="center">"Advanced" callback, set height and check height on parent or child of the selector passed to the plugin.</td>
+</tr>
+</tbody>
+</table>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/peec/jquery-eqheight">Jquery-eqheight</a> is maintained by <a href="https://github.com/peec">peec</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
+
