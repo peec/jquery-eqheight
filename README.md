@@ -1,5 +1,6 @@
 # jquery-eqheight
 
+** Lightweight: 0.962 kb minified **
 
 ## What does it do?
 
