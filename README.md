@@ -1,6 +1,8 @@
 # jquery-eqheight
 
-**Lightweight: 0.962 kb minified**
+
+[Example (bootstrap)](https://rawgit.com/peec/jquery-eqheight/master/samples/bootstrap.html)
+
 
 ## What does it do?
 
@@ -71,8 +73,8 @@ You can also initialize by data attribute data-eqheight:
     </div>
 ```
 
-- Note that internally we use `$(this).find('...')` on the `data-eqheight` attribute so only children of the container will be found. This is useful so you don't apply the rules globally.
-- 
+Note that internally we use `$(this).find('...')` on the `data-eqheight` attribute so only children of the container will be found. This is useful so you don't apply the rules globally.
+
 
 
 ### Settings
