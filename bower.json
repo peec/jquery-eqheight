@@ -1,7 +1,7 @@
 {
   "name": "jquery-eqheight",
-  "version": "0.0.1",
-  "main": [ "./jquery.eqheight.js" ],
+  "version": "0.0.2",
+  "main": [ "./jquery.eqheight.min.js" ],
   "ignore":
   [
     "README*",

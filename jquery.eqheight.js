@@ -52,7 +52,7 @@
  *
  * @author Petter Kjelkenes <kjelkenes@gmail.com>
  * @package jQuery.eqHeight
- * @version 0.0.1
+ * @version 0.0.2
  */
 (function ( $ ) {
     $.fn.extend({
