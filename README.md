@@ -1,8 +1,9 @@
-jQuery plugin eqHeight
+# jquery-eqheight
 
-=======  THE PLUGIN =======
 
-eqHeight does what it says. It sets blocks beside each other to the same height, based on the selector you pass. It
+## What does it do?
+
+It sets blocks beside each other to the same height, based on the selector you pass. It
 also works responsively which is a must these days. Only applies equal height if columns are stacked horizontally within
 the bounding box.
 
@@ -13,10 +14,13 @@ This is useful if:
 
 
 
-=======  USAGE =======
+## USAGE
 
 
-HTML:
+
+**HTML:**
+
+Example with bootstrap:
 
 ```html
 <div class="container">
@@ -34,17 +38,22 @@ HTML:
 </div>
 ```
 
+### via javascript:
+
 ```javascript
 $(function () {
 $('.col-xs-4').eqHeight({  });
 });
 ```
 
-You can also initialize by data attribute data-eqheight:
+### via data attributes:
 
+You can also initialize by data attribute data-eqheight:
 
 ````html
     <div class="row" data-eqheight=".col-xs-4">
     .... .col-xs-4 inside here will have equal height ....
     </div>
 ```
+
+
