@@ -18,7 +18,8 @@ This is useful if:
 
 
 
-**HTML:**
+### Example HTML
+
 
 Example with bootstrap:
 
@@ -56,4 +57,12 @@ You can also initialize by data attribute data-eqheight:
     </div>
 ```
 
+
+### Settings
+
+
+| Settings             | Description   |
+| -------------------- |:-------------:|
+| bindResizeEvent      | Binds to resize event if true. This should probably be done, if you have a responsive site. if not disable it (better performance). |
+| heightAdjuster       | "Advanced" callback, set height and check height on parent or child of the selector passed to the plugin.   |
 
