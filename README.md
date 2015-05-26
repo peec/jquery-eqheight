@@ -1,5 +1,6 @@
 # jquery-eqheight
 
+**Lightweight: 0.962 kb minified**
 
 ## What does it do?
 
@@ -51,7 +52,12 @@ Example with bootstrap 3:
 
 ```javascript
 $(function () {
-$('.col-xs-4').eqHeight({  });
+    $('.col-xs-4').eqHeight({
+        bindResizeEvent: true,
+        heightAdjuster: function ($self) {
+            return $self;
+        }
+    });
 });
 ```
 
@@ -64,6 +70,9 @@ You can also initialize by data attribute data-eqheight:
     .... .col-xs-4 inside here will have equal height ....
     </div>
 ```
+
+- Note that internally we use `$(this).find('...')` on the `data-eqheight` attribute so only children of the container will be found. This is useful so you don't apply the rules globally.
+- 
 
 
 ### Settings
