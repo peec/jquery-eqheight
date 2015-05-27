@@ -1,7 +1,7 @@
 # jquery-eqheight
 
 
-[Example (bootstrap)](https://rawgit.com/peec/jquery-eqheight/master/samples/bootstrap.html)
+[Example (bootstrap)](https://cdn.rawgit.com/peec/jquery-eqheight/0.0.5/samples/bootstrap.html)
 
 
 ## What does it do?
