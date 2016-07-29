@@ -54,83 +54,92 @@
  * @package jQuery.eqHeight
  * @version 0.0.5
  */
-(function ( $ ) {
-    $.fn.extend({
-        eqHeight: function (options) {
-            var els = this;
-            var options = $.extend({
+(function (factory) {
+  if (typeof define === 'function' && define.amd) {
+    // AMD. Register as an anonymous module.
+    define(['jquery'], factory);
+  } else {
+    // Browser globals
+    factory(jQuery);
+  }
+}(function ($) {
 
-                /**
-                 * Binds to resize event if true.
-                 * This should probably be done, if you have a responsive site. if not disable it (better performance).
-                 */
-                bindResizeEvent: true,
+  $.fn.extend({
+    eqHeight: function (options) {
+      var els = this;
+      var options = $.extend({
 
-                /**
-                 * Advanced callback, set height and check height on parent or child of the selector passed to the plugin.
-                 * @param $self
-                 * @returns {*}
-                 */
-                heightAdjuster: function ($self) {
-                    return $self;
-                }
+        /**
+         * Binds to resize event if true.
+         * This should probably be done, if you have a responsive site. if not disable it (better performance).
+         */
+        bindResizeEvent: true,
 
-            }, options || {});
-
-
-
-            if (!els.length) return;
-
-
-            if (els.data('eqheight')) {
-                els = els.find(els.data('eqheight'));
-            }
-
-            function resize (els) {
-                var rows = {};
-
-                els.each(function () {
-                    var $el = $(this);
-                    var rowIndicator = $el.offset().top;
-                    if (typeof rows[rowIndicator] === 'undefined') {
-                        rows[rowIndicator] = [];
-                    }
-                    rows[rowIndicator].push(options.heightAdjuster($el));
-
-                });
-
-                $.each(rows, function (rowIndicator, columns) {
-                    $.each(columns, function (index, $column) {
-                        $column.height('auto');
-                    });
-                    // Only resize if more then one of it...
-                    if (columns.length > 1) {
-                        var tallest = 0;
-                        $.each(columns, function (index, $column) {
-                            var height = $column.height();
-                            if (height > tallest) {
-                                tallest = height;
-                            }
-                        });
-                        $.each(columns, function (index, $column) {
-                            $column.height(tallest);
-                        });
-                    }
-                });
-            }
-
-            if (options.bindResizeEvent) {
-                $(window).resize(function () {
-                    resize(els);
-                });
-            }
-
-            resize(els);
-            return els;
+        /**
+         * Advanced callback, set height and check height on parent or child of the selector passed to the plugin.
+         * @param $self
+         * @returns {*}
+         */
+        heightAdjuster: function ($self) {
+          return $self;
         }
-    });
 
-    $(function () {
-        $('[data-eqheight]').eqHeight({});
-    });
-}( jQuery ));
+      }, options || {});
+
+
+
+      if (!els.length) return;
+
+
+      if (els.data('eqheight')) {
+        els = els.find(els.data('eqheight'));
+      }
+
+      function resize (els) {
+        var rows = {};
+
+        els.each(function () {
+          var $el = $(this);
+          var rowIndicator = $el.offset().top;
+          if (typeof rows[rowIndicator] === 'undefined') {
+            rows[rowIndicator] = [];
+          }
+          rows[rowIndicator].push(options.heightAdjuster($el));
+
+        });
+
+        $.each(rows, function (rowIndicator, columns) {
+          $.each(columns, function (index, $column) {
+            $column.height('auto');
+          });
+          // Only resize if more then one of it...
+          if (columns.length > 1) {
+            var tallest = 0;
+            $.each(columns, function (index, $column) {
+              var height = $column.height();
+              if (height > tallest) {
+                tallest = height;
+              }
+            });
+            $.each(columns, function (index, $column) {
+              $column.height(tallest);
+            });
+          }
+        });
+      }
+
+      if (options.bindResizeEvent) {
+        $(window).resize(function () {
+          resize(els);
+        });
+      }
+
+      resize(els);
+      return els;
+    }
+  });
+
+  $(function () {
+    $('[data-eqheight]').eqHeight({});
+  });
+}));
